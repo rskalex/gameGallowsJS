@@ -32,6 +32,5 @@ while(number > 0){
     
 }
 
-
 alert(answerArr.join(' '));
 alert("Werry good. Word is " + randomWord);
