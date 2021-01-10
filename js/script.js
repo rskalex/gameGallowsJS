@@ -10,7 +10,9 @@ for(let i = 0; i < randomWord.length; i++){
     console.log(randomWord[i]);
 }
 
-while(number > 0){
+let count = 0;
+
+while(number > 0 && count < randomWord.length + 5){
     console.log(answerArr.join(' '));
     alert(answerArr.join(' '));
 
@@ -21,16 +23,20 @@ while(number > 0){
     } else if (enterSymbol.length !== 1){
         alert('Enter just one symbol, please!');
     } else {
+        count++;
+        enterSymbol = enterSymbol.toLowerCase();
         for(let j = 0; j < randomWord.length; j++){
-            if(randomWord[j] === enterSymbol){
+            if(randomWord[j] === enterSymbol && answerArr[j] === '_'){
                 answerArr[j] = enterSymbol;
                 number--;
             }
         }
-    }
-
-    
+    } 
 }
 
 alert(answerArr.join(' '));
-alert("Werry good. Word is " + randomWord);
+if (count < randomWord.length + 5) {
+    alert("Отлично! Было загадано слово " + randomWord);
+} else {
+    alert("Очень плохо! Было загадано слово " + randomWord);
+}
